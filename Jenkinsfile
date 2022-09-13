@@ -1,15 +1,16 @@
 pipeline {
+    agent any
 
-	agent any
+    environment {
 
-	environment {
-		AWS_ACCESS_KEY_ID     = credentials('Access_key_ID')
-  		AWS_SECRET_ACCESS_KEY = credentials('Secret_access_key')
-		ARTIFACT_NAME = 'hackathon.json'
-		AWS_S3_BUCKET = 'warriors-project'
-		AWS_EB_APP_NAME = 'booktracker-project'
-        AWS_EB_ENVIRONMENT_NAME = 'Booktrackerproject-env'
+        AWS_ACCESS_KEY_ID     = credentials('Access_key_ID')
+        AWS_SECRET_ACCESS_KEY = credentials('Secret_access_key')
+
+        AWS_S3_BUCKET = "warriors-project"
+        ARTIFACT_NAME = "learningMaven-1.0-SNAPSHOT.jar"
+        AWS_EB_APP_NAME = "booktracker-project"
         AWS_EB_APP_VERSION = "${BUILD_ID}"
+        AWS_EB_ENVIRONMENT = "Booktrackerproject-env"
 
        
     }
